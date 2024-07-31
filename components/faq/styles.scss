@@ -1,0 +1,125 @@
+$white: hsl(0, 0%, 100%);
+$light_pink: hsl(275, 100%, 97%);
+$grayish_purple: hsl(292, 16%, 49%);
+$dark_purple: hsl(292, 42%, 14%);
+$pink: #AD28EB;
+
+
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: $light_pink;
+}
+
+.bgc {
+    height: 35vh;
+    width: 100vw;
+    background: url('../faq/assets/images/background-pattern-desktop.svg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.card {
+    max-width: 50vw;
+    background-color: $white;
+    position: absolute;
+    left: 50%;
+    top: 150px;
+    transform: translateX(-50%);
+    padding: 30px;
+    border-radius: 10px;
+
+    font-family: 'Open Sans';
+
+}
+
+.title {
+    display: flex;
+    align-items: center;
+
+    span {
+        font-size: 40px;
+        line-height: 50px;
+        font-weight: 700;
+        padding-left: 20px;
+        color: $dark_purple ;
+    }
+}
+
+.accordions_cont {
+    padding-top: 30px;
+
+    .accordion {
+        padding-bottom: 40px;
+    }
+
+    .active {
+
+        .img_cont {
+            background-color: $dark_purple
+        }
+
+        .line_two {
+            opacity: 0;
+        }
+    }
+
+    .acc_content {
+        padding-top: 20px;
+        color: $dark_purple;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.2s ease-out;
+    }
+
+    .acc_title {
+        font-size: 20px;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color: $dark_purple;
+        transition: color .3s ease-in-out;
+        cursor: pointer;
+
+        &:hover {
+            color: $pink;
+        }
+    }
+
+    .img_cont {
+        width: 28px;
+        height: 28px;
+        background: $pink;
+        border-radius: 50%;
+        position: relative;
+        margin-left: 20px;
+        transition: background .2s ease-in-out;
+
+        .line_one {
+            display: block;
+            width: 14px;
+            height: 2px;
+            background: $white;
+            position: absolute;
+            left: 7px;
+            top: 13px;
+            border-radius: 4px;
+        }
+
+        .line_two {
+            display: block;
+            height: 14px;
+            width: 2px;
+            background: $white;
+            position: absolute;
+            left: 13px;
+            top: 7px;
+            border-radius: 4px;
+            transition: opacity .2s ease-out;
+        }
+    }
+}

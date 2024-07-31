@@ -1,0 +1,118 @@
+body {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background-color: hsl(275, 100%, 97%);
+}
+
+.bgc {
+  height: 35vh;
+  width: 100vw;
+  background: url("../faq/assets/images/background-pattern-desktop.svg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.card {
+  max-width: 50vw;
+  background-color: hsl(0, 0%, 100%);
+  position: absolute;
+  left: 50%;
+  top: 150px;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  padding: 30px;
+  border-radius: 10px;
+  font-family: "Open Sans";
+}
+
+.title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.title span {
+  font-size: 40px;
+  line-height: 50px;
+  font-weight: 700;
+  padding-left: 20px;
+  color: hsl(292, 42%, 14%);
+}
+
+.accordions_cont {
+  padding-top: 30px;
+}
+.accordions_cont .accordion {
+  padding-bottom: 40px;
+}
+.accordions_cont .active .img_cont {
+  background-color: hsl(292, 42%, 14%);
+}
+.accordions_cont .active .line_two {
+  opacity: 0;
+}
+.accordions_cont .acc_content {
+  padding-top: 20px;
+  color: hsl(292, 42%, 14%);
+  max-height: 0;
+  overflow: hidden;
+  -webkit-transition: max-height 0.2s ease-out;
+  transition: max-height 0.2s ease-out;
+}
+.accordions_cont .acc_title {
+  font-size: 20px;
+  font-weight: 700;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  color: hsl(292, 42%, 14%);
+  -webkit-transition: color 0.3s ease-in-out;
+  transition: color 0.3s ease-in-out;
+  cursor: pointer;
+}
+.accordions_cont .acc_title:hover {
+  color: #AD28EB;
+}
+.accordions_cont .img_cont {
+  width: 28px;
+  height: 28px;
+  background: #AD28EB;
+  border-radius: 50%;
+  position: relative;
+  margin-left: 20px;
+  -webkit-transition: background 0.2s ease-in-out;
+  transition: background 0.2s ease-in-out;
+}
+.accordions_cont .img_cont .line_one {
+  display: block;
+  width: 14px;
+  height: 2px;
+  background: hsl(0, 0%, 100%);
+  position: absolute;
+  left: 7px;
+  top: 13px;
+  border-radius: 4px;
+}
+.accordions_cont .img_cont .line_two {
+  display: block;
+  height: 14px;
+  width: 2px;
+  background: hsl(0, 0%, 100%);
+  position: absolute;
+  left: 13px;
+  top: 7px;
+  border-radius: 4px;
+  -webkit-transition: opacity 0.2s ease-out;
+  transition: opacity 0.2s ease-out;
+}/*# sourceMappingURL=styles.css.map */

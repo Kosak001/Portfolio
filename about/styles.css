@@ -1,0 +1,25 @@
+body {
+  margin: 0;
+  background: -webkit-gradient(linear, left top, left bottom, from(#8C1E8E), to(#2A1A8E));
+  background: linear-gradient(#8C1E8E, #2A1A8E);
+  font-family: "Courier New", Courier, monospace;
+}
+
+.wrapper {
+  padding: 0px 200px;
+}
+@media screen and (max-width: 1200px) {
+  .wrapper {
+    padding: 0 100px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .wrapper {
+    padding: 0 60px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .wrapper {
+    padding: 0 20px;
+  }
+}/*# sourceMappingURL=styles.css.map */

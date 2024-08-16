@@ -26,6 +26,10 @@ body {
     background-color: $Rose_50;
 }
 
+.hidden_svg {
+    display: none;
+}
+
 .container {
     margin: 0 auto;
     max-width: 2000px;
@@ -58,11 +62,11 @@ body {
 
     .img_container {
         position: relative;
+        max-width: 300px;
     }
 
     .add_to_cart_btn {
         width: 50%;
-
         position: absolute;
         padding: 6px 20px;
         background-color: white;
@@ -79,14 +83,28 @@ body {
         justify-content: center;
         cursor: pointer;
         opacity: 1;
-
-        transition: opacity .3s ease;
+        z-index: 1;
+        transition: opacity .3s ease, background-color .3s ease, color .3s ease, visibility .3s .01s ease;
 
         &.hidden {
             opacity: 0;
-            // visibility: hidden;
-
+            visibility: hidden;
         }
+
+        svg g {
+            transition: fill .3s ease;
+        }
+
+        &:hover {
+            background-color: $red;
+            color: white;
+
+            svg g {
+                fill: white;
+            }
+        }
+
+
     }
 
     .change_quantity {
@@ -107,17 +125,29 @@ body {
         justify-content: space-between;
         cursor: pointer;
 
-        img {
+        svg {
             width: 10px;
             height: 10px;
             padding: 5px;
             border: 1px solid white;
             border-radius: 50%;
+            transition: all .3s ease;
+
+
+            path {
+                transition: all .3s ease;
+            }
+
+            &:hover {
+                background-color: white;
+
+                path {
+                    fill: $red;
+                }
+            }
         }
 
-        img:nth-child(2) {
-            order: -1
-        }
+
     }
 
     .product_img {
@@ -129,6 +159,11 @@ body {
 
         &:hover {
             outline: 2px solid $red;
+        }
+
+        &.checked {
+            outline: 2px solid $red;
+
         }
     }
 

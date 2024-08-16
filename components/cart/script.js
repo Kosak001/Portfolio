@@ -54,6 +54,7 @@ function populatePage(obj) {
     }
 
     addToCart()
+    changeQuantity()
 }
 
 populate()
@@ -61,22 +62,29 @@ populate()
 function createAddToCart(imgCont) {
     const addToCartBtn = document.createElement('div')
     const changQuantity = document.createElement('div')
-    const cartImg = document.createElement('img')
-    const addImage = document.createElement('img')
-    const removeImage = document.createElement('img')
+    const quantityNumber = document.createElement('div')
+    const cartImg = document.querySelector('.cart_img')
+    const increaseImage = document.querySelector('.increment_img')
+    const decreaseImage = document.querySelector('.decrement_img')
     addToCartBtn.classList.add('add_to_cart_btn')
     changQuantity.classList.add('change_quantity')
+    quantityNumber.classList.add('quantity_number')
     addToCartBtn.innerText = "Add To Cart"
-    changQuantity.innerText = "1"
-    cartImg.src = "./assets/images/icon-add-to-cart.svg"
-    addImage.src = "./assets/images/icon-increment-quantity.svg"
-    removeImage.src = "./assets/images/icon-decrement-quantity.svg"
+    quantityNumber.innerText = "1"
+    // cartImg.src = "./assets/images/icon-add-to-cart.svg"
+    increaseImage.src = "./assets/images/icon-increment-quantity.svg"
+    decreaseImage.src = "./assets/images/icon-decrement-quantity.svg"
+    increaseImage.classList.add('increase_btn')
+    decreaseImage.classList.add('decrease_btn')
     imgCont.appendChild(changQuantity)
     imgCont.appendChild(addToCartBtn)
-
-    addToCartBtn.appendChild(cartImg)
-    changQuantity.appendChild(addImage)
-    changQuantity.appendChild(removeImage)
+    const addCartBtnClone = cartImg.cloneNode(true)
+    const incrementImgClone = increaseImage.cloneNode(true)
+    const decrementImgClone = decreaseImage.cloneNode(true)
+    addToCartBtn.appendChild(addCartBtnClone)
+    changQuantity.appendChild(decrementImgClone)
+    changQuantity.appendChild(quantityNumber)
+    changQuantity.appendChild(incrementImgClone)
 }
 
 function addToCart() {
@@ -84,6 +92,7 @@ function addToCart() {
     let products = document.querySelectorAll('.add_to_cart_btn')
     products.forEach(el => {
         el.addEventListener('click', () => {
+            el.closest('.img_container').querySelector('.product_img').classList.add('checked')
             let product = el.closest('.single_product')
             let price = product.querySelector('h3').innerText.replace('$', '')
             el.classList.add('hidden')
@@ -98,6 +107,34 @@ function addToCart() {
 }
 
 function changeQuantity() {
+    const increaseBtn = document.querySelectorAll('.increase_btn')
+    const decreaseBtn = document.querySelectorAll('.decrease_btn')
+
+    increaseBtn.forEach(el => {
+        el.addEventListener('click', () => {
+            let quantity = parseInt(el.closest('.change_quantity').querySelector('.quantity_number').textContent)
+            quantity++
+            el.closest('.change_quantity').querySelector('.quantity_number').textContent = quantity
+
+            const price = el.closest('.single_product').querySelector('h3').innerText.replace('$', '')
+            const prevPrice = parseFloat(localStorage.getItem('price'));
+            localStorage.setItem('price', parseFloat(price) + prevPrice)
+        })
+    });
+    decreaseBtn.forEach(el => {
+        el.addEventListener('click', () => {
+            let quantity = parseInt(el.closest('.change_quantity').querySelector('.quantity_number').textContent)
+            if (quantity > 1) {
+                quantity--
+                el.closest('.change_quantity').querySelector('.quantity_number').textContent = quantity
+
+                const price = el.closest('.single_product').querySelector('h3').innerText.replace('$', '')
+                const prevPrice = parseFloat(localStorage.getItem('price'));
+                localStorage.setItem('price', prevPrice - parseFloat(price))
+            }
+
+        })
+    });
 
 }
 

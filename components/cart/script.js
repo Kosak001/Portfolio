@@ -102,6 +102,9 @@ function addToCart() {
                 const prevPrice = parseFloat(localStorage.getItem('price'));
                 localStorage.setItem('price', parseFloat(price) + prevPrice)
             }
+
+            updateCart()
+            addProdToCart(el)
         })
     });
 }
@@ -119,7 +122,12 @@ function changeQuantity() {
             const price = el.closest('.single_product').querySelector('h3').innerText.replace('$', '')
             const prevPrice = parseFloat(localStorage.getItem('price'));
             localStorage.setItem('price', parseFloat(price) + prevPrice)
+
+            updateCart()
+            changeCartQuantity(el)
+
         })
+
     });
     decreaseBtn.forEach(el => {
         el.addEventListener('click', () => {
@@ -133,10 +141,80 @@ function changeQuantity() {
                 localStorage.setItem('price', prevPrice - parseFloat(price))
             }
 
+            updateCart()
+            changeCartQuantity(el)
         })
+
+    });
+
+
+
+}
+
+function updateCart() {
+    let cartPrice = document.querySelector('.cart_summary_price')
+    cartPrice.textContent = `$${localStorage.getItem('price')}`
+}
+
+function addProdToCart(obj) {
+
+    let prodTitle = obj.closest('.single_product').querySelector('h1').textContent
+    let prodPrice = obj.closest('.single_product').querySelector('h3').textContent.replace('$', '')
+    let prodId = obj.closest('.single_product').getAttribute('data-id')
+
+    let prodQuantity = obj.closest('.single_product').querySelector('.quantity_number').textContent
+    let prodFullPrice = parseFloat(prodPrice) * parseFloat(prodQuantity)
+
+    const cont = document.querySelector('.cart_content')
+    const quantity = document.createElement('div');
+    const singlePrice = document.createElement('div');
+    const fullPrice = document.createElement('div')
+    const singleProd = document.createElement('div')
+    const cartProdTitle = document.createElement('div')
+    const cartRight = document.createElement('div')
+    const cartLeft = document.createElement('div')
+    const quantityPrice = document.createElement('div')
+    singleProd.classList.add('cart_product')
+    quantity.classList.add('cart_quantity')
+    singlePrice.classList.add('cart_single_price')
+    fullPrice.classList.add('cart_full_price')
+    cartLeft.classList.add('cart_left_side')
+    cartRight.classList.add('cart_right_side')
+    quantityPrice.classList.add('quantity_price')
+    cartProdTitle.classList.add('cart_prod_title')
+    cartProdTitle.textContent = prodTitle
+    singleProd.setAttribute('data-id', prodId)
+
+
+    cont.appendChild(singleProd)
+    singleProd.appendChild(cartLeft)
+    singleProd.appendChild(cartRight)
+    cartLeft.appendChild(cartProdTitle)
+    cartLeft.appendChild(quantityPrice)
+    quantityPrice.appendChild(quantity)
+    quantityPrice.appendChild(singlePrice)
+    quantityPrice.appendChild(fullPrice)
+    quantity.textContent = `${prodQuantity}x`
+    singlePrice.textContent = `$${prodPrice}`
+    fullPrice.textContent = `$${prodFullPrice}`
+
+}
+
+function changeCartQuantity(obj) {
+    const changedQuantity = parseInt(obj.closest('.change_quantity').querySelector('.quantity_number').textContent);
+    const prodId = obj.closest('.single_product').getAttribute('data-id')
+    const products = document.querySelectorAll('.cart_product')
+    products.forEach(el => {
+        if (prodId === el.getAttribute('data-id')) {
+            el.querySelector('.cart_quantity').textContent = `${changedQuantity}x`
+            const price = parseFloat(el.querySelector('.cart_single_price').textContent.replace('$', ''))
+            el.querySelector('.cart_full_price').textContent = `$${price * changedQuantity}`
+        }
+
     });
 
 }
+
 
 
 

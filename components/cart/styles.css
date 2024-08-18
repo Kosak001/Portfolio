@@ -30,6 +30,10 @@ body {
   padding: 60px;
   -webkit-box-shadow: 2px 4px 20px 0 gray, 2px 6px 20px 0 gray;
           box-shadow: 2px 4px 20px 0 gray, 2px 6px 20px 0 gray;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 30px;
 }
 
 .left_side {
@@ -43,10 +47,84 @@ body {
   font-family: "RedHatText-Bold", sans-serif;
 }
 
+.right_side {
+  width: 30%;
+}
+
+.right_side_cont {
+  background-color: white;
+  height: auto;
+  padding: 20px;
+  border-radius: 10px;
+}
+.right_side_cont .cart_title {
+  font-size: 22px;
+  color: hsl(14, 86%, 42%);
+  font-family: "RedHatText-Bold", sans-serif;
+}
+.right_side_cont .cart_summary {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  color: hsl(14, 65%, 9%);
+  padding-top: 20px;
+}
+.right_side_cont .cart_summary_text {
+  font-family: "RedHatText-Regular", sans-serif;
+}
+.right_side_cont .cart_summary_price {
+  font-size: 22px;
+  font-family: "RedHatText-Bold", sans-serif;
+}
+.right_side_cont .delivery_info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 10px 0;
+  margin-top: 20px;
+  gap: 6px;
+  background-color: hsl(13, 31%, 94%);
+  width: 100%;
+  border-radius: 10px;
+  font-family: "RedHatText-Regular", sans-serif;
+}
+.right_side_cont .confirm_btn {
+  width: 100%;
+  padding: 12px 0;
+  border-radius: 20px;
+  border: 0;
+  margin-top: 20px;
+  background-color: hsl(14, 86%, 42%);
+  color: white;
+  font-family: "RedHatText-SemiBold", sans-serif;
+  text-align: center;
+  cursor: pointer;
+  -webkit-transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease;
+}
+.right_side_cont .confirm_btn:hover {
+  background-color: hsl(14, 65%, 9%);
+}
+
 .products {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 20px;
+}
+.products .single_product {
+  width: 100%;
 }
 .products .img_container {
   position: relative;
@@ -55,7 +133,7 @@ body {
 .products .add_to_cart_btn {
   width: 50%;
   position: absolute;
-  padding: 6px 20px;
+  padding: 7px 20px;
   background-color: white;
   left: 50%;
   -webkit-transform: translateX(-50%);
@@ -145,6 +223,7 @@ body {
 }
 .products .product_img {
   max-width: 300px;
+  width: 100%;
   border-radius: 10px;
   cursor: pointer;
   -webkit-transition: outline 0.3s ease;

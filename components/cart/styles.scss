@@ -41,6 +41,8 @@ body {
     margin: 100px 50px;
     padding: 60px;
     box-shadow: 2px 4px 20px 0 gray, 2px 6px 20px 0 gray;
+    display: flex;
+    gap: 30px;
 }
 
 .left_side {
@@ -55,10 +57,82 @@ body {
     }
 }
 
+.right_side {
+    width: 30%;
+
+}
+
+.right_side_cont {
+    background-color: white;
+    height: auto;
+    padding: 20px;
+    border-radius: 10px;
+
+    .cart_title {
+        font-size: 22px;
+        color: $red;
+        font-family: "RedHatText-Bold", sans-serif;
+
+    }
+
+    .cart_summary {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color: $Rose_900;
+        padding-top: 20px;
+    }
+
+    .cart_summary_text {
+        font-family: "RedHatText-Regular", sans-serif;
+
+    }
+
+    .cart_summary_price {
+        font-size: 22px;
+        font-family: "RedHatText-Bold", sans-serif;
+    }
+
+    .delivery_info {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px 0;
+        margin-top: 20px;
+        gap: 6px;
+        background-color: $Rose_100;
+        width: 100%;
+        border-radius: 10px;
+        font-family: "RedHatText-Regular", sans-serif;
+    }
+
+    .confirm_btn {
+        width: 100%;
+        padding: 12px 0;
+        border-radius: 20px;
+        border: 0;
+        margin-top: 20px;
+        background-color: $red;
+        color: white;
+        font-family: "RedHatText-SemiBold", sans-serif;
+        text-align: center;
+        cursor: pointer;
+        transition: background-color .3s ease;
+
+        &:hover {
+            background-color: $Rose_900;
+        }
+    }
+}
+
 .products {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 20px;
+
+    .single_product {
+        width: 100%;
+    }
 
     .img_container {
         position: relative;
@@ -68,7 +142,7 @@ body {
     .add_to_cart_btn {
         width: 50%;
         position: absolute;
-        padding: 6px 20px;
+        padding: 7px 20px;
         background-color: white;
         left: 50%;
         transform: translateX(-50%);
@@ -152,6 +226,7 @@ body {
 
     .product_img {
         max-width: 300px;
+        width: 100%;
         border-radius: 10px;
         cursor: pointer;
         transition: outline .3s ease;

@@ -254,4 +254,49 @@ body {
   margin: 0;
   padding-bottom: 4px;
   color: hsl(14, 86%, 42%);
+}
+
+.cart_product {
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid hsl(14, 25%, 72%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.cart_product .cart_prod_title {
+  font-family: "RedHatText-Bold", sans-serif;
+  padding-bottom: 10px;
+}
+.cart_product .quantity_price {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-family: "RedHatText-Regular", sans-serif;
+}
+.cart_product .cart_quantity {
+  color: hsl(14, 86%, 42%);
+  font-family: "RedHatText-Bold", sans-serif;
+  padding-right: 16px;
+}
+.cart_product .cart_single_price {
+  color: hsl(12, 20%, 44%);
+  padding-right: 10px;
+}
+.cart_product .cart_full_price {
+  color: hsl(14, 65%, 9%);
+}
+.cart_product .remove_icon {
+  outline: 1px solid hsl(14, 25%, 72%);
+  padding: 3px;
+  border-radius: 50%;
+}
+.cart_product .remove_icon:hover {
+  cursor: pointer;
 }/*# sourceMappingURL=styles.css.map */

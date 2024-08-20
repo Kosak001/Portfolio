@@ -265,4 +265,52 @@ body {
         color: $red;
     }
 
+
+
+}
+
+.cart_product {
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid $Rose_300;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .cart_prod_title {
+        font-family: "RedHatText-Bold", sans-serif;
+        padding-bottom: 10px;
+
+    }
+
+    .quantity_price {
+        display: flex;
+        font-family: "RedHatText-Regular", sans-serif;
+
+    }
+
+    .cart_quantity {
+        color: $red;
+        font-family: "RedHatText-Bold", sans-serif;
+        padding-right: 16px;
+    }
+
+    .cart_single_price {
+        color: $Rose_500;
+        padding-right: 10px;
+    }
+
+    .cart_full_price {
+        color: $Rose_900;
+    }
+
+    .remove_icon {
+        outline: 1px solid $Rose_300;
+        padding: 3px;
+        border-radius: 50%;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
 }

@@ -72,8 +72,8 @@ function createAddToCart(imgCont) {
     addToCartBtn.innerText = "Add To Cart"
     quantityNumber.innerText = "1"
     // cartImg.src = "./assets/images/icon-add-to-cart.svg"
-    increaseImage.src = "./assets/images/icon-increment-quantity.svg"
-    decreaseImage.src = "./assets/images/icon-decrement-quantity.svg"
+    // increaseImage.src = "./assets/images/icon-increment-quantity.svg"
+    // decreaseImage.src = "./assets/images/icon-decrement-quantity.svg"
     increaseImage.classList.add('increase_btn')
     decreaseImage.classList.add('decrease_btn')
     imgCont.appendChild(changQuantity)
@@ -174,6 +174,8 @@ function addProdToCart(obj) {
     const cartRight = document.createElement('div')
     const cartLeft = document.createElement('div')
     const quantityPrice = document.createElement('div')
+    const removeIcon = document.querySelector('.remove_icon')
+    const removeIconClone = removeIcon.cloneNode(true)
     singleProd.classList.add('cart_product')
     quantity.classList.add('cart_quantity')
     singlePrice.classList.add('cart_single_price')
@@ -197,6 +199,18 @@ function addProdToCart(obj) {
     quantity.textContent = `${prodQuantity}x`
     singlePrice.textContent = `$${prodPrice}`
     fullPrice.textContent = `$${prodFullPrice}`
+    cartRight.appendChild(removeIconClone)
+
+    removeIconClone.addEventListener('click', () => {
+        const product = event.target.closest('.cart_product');
+        cartPrice = parseFloat(localStorage.getItem('price'))
+        newPrice = cartPrice - parseFloat(product.querySelector('.cart_full_price').textContent.replace('$', ''))
+
+        localStorage.setItem('price', newPrice)
+        product.remove()
+        updateCart()
+
+    })
 
 }
 

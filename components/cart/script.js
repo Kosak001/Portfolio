@@ -86,16 +86,23 @@ function createAddToCart(imgCont) {
     changQuantity.appendChild(quantityNumber)
     changQuantity.appendChild(incrementImgClone)
 }
-
 function addToCart() {
     localStorage.setItem('price', '')
+    localStorage.setItem('productsCounter', 0)
+    localStorage.setItem('cartEmpty', true)
     let products = document.querySelectorAll('.add_to_cart_btn')
+    isCartEmpty()
     products.forEach(el => {
         el.addEventListener('click', () => {
             el.closest('.img_container').querySelector('.product_img').classList.add('checked')
             let product = el.closest('.single_product')
             let price = product.querySelector('h3').innerText.replace('$', '')
+            let counter = parseInt(localStorage.getItem('productsCounter'))
+            localStorage.setItem('productsCounter', ++counter)
             el.classList.add('hidden')
+            localStorage.setItem('cartEmpty', false)
+            isCartEmpty()
+
             if (localStorage.getItem('price') === '') {
                 localStorage.setItem('price', price)
             } else {
@@ -107,6 +114,19 @@ function addToCart() {
             addProdToCart(el)
         })
     });
+}
+
+function isCartEmpty() {
+    const emptyCartVal = localStorage.getItem('cartEmpty')
+    const cartThumbnail = document.querySelector('.empty_cart')
+    const cart = document.querySelector('.products_cart_cont')
+    if (emptyCartVal === 'true') {
+        cartThumbnail.classList.remove('hidden');
+        cart.classList.add('hidden');
+    } else {
+        cartThumbnail.classList.add('hidden');
+        cart.classList.remove('hidden');
+    }
 }
 
 function changeQuantity() {
@@ -139,6 +159,12 @@ function changeQuantity() {
                 const price = el.closest('.single_product').querySelector('h3').innerText.replace('$', '')
                 const prevPrice = parseFloat(localStorage.getItem('price'));
                 localStorage.setItem('price', prevPrice - parseFloat(price))
+            } else if (quantity === 1) {
+                quantity = 0
+                el.closest('.change_quantity').querySelector('.quantity_number').textContent = quantity
+                const price = el.closest('.single_product').querySelector('h3').innerText.replace('$', '')
+                const prevPrice = parseFloat(localStorage.getItem('price'));
+                localStorage.setItem('price', prevPrice - parseFloat(price))
             }
 
             updateCart()
@@ -154,6 +180,9 @@ function changeQuantity() {
 function updateCart() {
     let cartPrice = document.querySelector('.cart_summary_price')
     cartPrice.textContent = `$${localStorage.getItem('price')}`
+
+    let cartTitleCounter = document.querySelector('.cart_title span')
+    cartTitleCounter.textContent = localStorage.getItem('productsCounter')
 }
 
 function addProdToCart(obj) {
@@ -205,9 +234,24 @@ function addProdToCart(obj) {
         const product = event.target.closest('.cart_product');
         cartPrice = parseFloat(localStorage.getItem('price'))
         newPrice = cartPrice - parseFloat(product.querySelector('.cart_full_price').textContent.replace('$', ''))
-
         localStorage.setItem('price', newPrice)
         product.remove()
+        let counter = parseInt(localStorage.getItem('productsCounter'))
+        localStorage.setItem('productsCounter', --counter)
+        if (counter === 0) {
+            localStorage.setItem('cartEmpty', true)
+            isCartEmpty()
+        }
+
+
+        const prodId = product.getAttribute('data-id')
+        const allProducts = document.querySelectorAll('.single_product')
+        allProducts.forEach(el => {
+            if (el.getAttribute('data-id') === prodId) {
+                el.querySelector('.quantity_number').textContent = '1'
+                el.querySelector('.add_to_cart_btn').classList.remove('hidden')
+            }
+        });
         updateCart()
 
     })

@@ -1,21 +1,9 @@
-// async function populate() {
-//     const request = "./data.json";
-//     const data = new Request(request);
-//     const response = await fetch(data);
-//     const population = await response.json();
-//     console.log(population);
-//     populatePage(population)
-// }
-
-// function populatePage(obj) {
-//     const products = document.querySelector(".products")
-//     const img = document.createElement('img');
-//     console.log(obj);
-// }
-
-// populate()
-
-
+/**
+ * ! Warning, this code is a complete madness. I created a sweet little monster. Reading further may involve gouging out your eyes.
+ * * Project was was done by me without much thinking. I just found it on Frontend Mentor page and decided to do it for learning purpose as I have never created cart.I know this code could be made way easier, clearer and more understandable. Maybe in the future I will open this project again and make some update :D
+ * 
+ * 
+ */
 async function populate() {
 
     fetch('./data.json')
@@ -250,6 +238,7 @@ function addProdToCart(obj) {
             if (el.getAttribute('data-id') === prodId) {
                 el.querySelector('.quantity_number').textContent = '1'
                 el.querySelector('.add_to_cart_btn').classList.remove('hidden')
+                el.querySelector('.product_img').classList.remove('checked')
             }
         });
         updateCart()
@@ -272,6 +261,50 @@ function changeCartQuantity(obj) {
     });
 
 }
+
+function confirmOrder() {
+    const confBtn = document.querySelector('.confirm_btn')
+    const modal = document.querySelector('.modal_hidden')
+    confBtn.addEventListener('click', () => {
+        modal.querySelector('.modal_confirm_summary_price').textContent = `$${localStorage.getItem('price')}`
+        modal.classList.remove('modal_hidden')
+        const orderContainer = document.querySelector('.modal_confirm_products')
+        const products = document.querySelectorAll('.cart_product')
+        products.forEach(el => {
+
+            const clonedEl = el.cloneNode(true)
+            clonedEl.querySelector('.remove_icon').remove()
+            const price = clonedEl.querySelector('.cart_full_price')
+            const rightSide = clonedEl.querySelector('.cart_right_side')
+            const img = document.createElement('img')
+            let clonedId = clonedEl.getAttribute('data-id')
+            let products = document.querySelectorAll('.single_product')
+            products.forEach(element => {
+                let productsId = element.getAttribute('data-id');
+                if (productsId === clonedId) {
+                    img.classList.add('confirm_product_img')
+                    img.src = element.querySelector('.product_img').getAttribute('src')
+                    console.log(img);
+                }
+            });
+
+            clonedEl.insertBefore(img, clonedEl.firstChild)
+            rightSide.appendChild(price)
+            orderContainer.appendChild(clonedEl)
+
+        });
+    })
+}
+
+confirmOrder()
+
+function startNewOrder() {
+    document.querySelector('.modal_confirm_btn').addEventListener('click', () => {
+        location.reload()
+    })
+}
+
+startNewOrder()
 
 
 

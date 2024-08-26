@@ -24,6 +24,7 @@ $Rose_900: hsl(14, 65%, 9%);
 
 body {
     background-color: $Rose_50;
+    margin: 0;
 }
 
 .hidden_svg {
@@ -34,13 +35,18 @@ body {
     margin: 0 auto;
     max-width: 1500px;
     padding: 0 50px;
+
+    @media screen and (max-width:1024px) {
+        padding: 0 30px;
+    }
+
+    @media screen and (max-width:768px) {
+        padding: 0;
+    }
+
 }
 
-.hidden {
-    opacity: 0;
-    visibility: hidden;
-    height: 0;
-}
+
 
 .content {
     background-color: $Rose_100;
@@ -49,11 +55,30 @@ body {
     box-shadow: 2px 4px 20px 0 gray, 2px 6px 20px 0 gray;
     display: flex;
     gap: 30px;
+
+    @media screen and (max-width:1024px) {
+        margin: 20px 0px;
+        padding: 30px;
+        gap: 20px;
+    }
+
+    @media screen and (max-width:768px) {
+        flex-direction: column;
+        padding: 20px;
+    }
 }
 
 .left_side {
     width: 70%;
     font-family: "RedHatText-Regular", sans-serif;
+
+    @media screen and (max-width:1024px) {
+        width: 60%;
+    }
+
+    @media screen and (max-width:768px) {
+        width: 100%;
+    }
 
     .title {
         font-size: 30px;
@@ -66,6 +91,14 @@ body {
 .right_side {
     width: 30%;
 
+    @media screen and (max-width:1024px) {
+        width: 40%;
+    }
+
+    @media screen and (max-width:768px) {
+        width: 100%;
+    }
+
 }
 
 .right_side_cont {
@@ -73,6 +106,12 @@ body {
     height: auto;
     padding: 20px;
     border-radius: 10px;
+
+    .hidden {
+        opacity: 0;
+        visibility: hidden;
+        height: 0;
+    }
 
     .empty_cart {
         img {
@@ -117,11 +156,11 @@ body {
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: 10px 0;
+        padding: 10px;
         margin-top: 20px;
         gap: 6px;
         background-color: $Rose_100;
-        width: 100%;
+        // width: 100%;
         border-radius: 10px;
         font-family: "RedHatText-Regular", sans-serif;
     }
@@ -150,6 +189,16 @@ body {
     grid-template-columns: 1fr 1fr 1fr;
     gap: 20px;
 
+    @media screen and (max-width:1024px) {
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+    }
+
+    @media screen and (max-width:768px) {
+        grid-template-columns: 1fr;
+    }
+
+
     .single_product {
         width: 100%;
     }
@@ -157,6 +206,10 @@ body {
     .img_container {
         position: relative;
         max-width: 300px;
+
+        @media screen and (max-width:768px) {
+            max-width: unset;
+        }
     }
 
     .add_to_cart_btn {
@@ -179,6 +232,10 @@ body {
         opacity: 1;
         z-index: 1;
         transition: opacity .3s ease, background-color .3s ease, color .3s ease, visibility .3s .01s ease;
+
+        @media screen and (max-width:1024px) {
+            font-size: 12px;
+        }
 
         &.hidden {
             opacity: 0;
@@ -251,6 +308,10 @@ body {
         cursor: pointer;
         transition: outline .3s ease;
         outline: 2px solid transparent;
+
+        @media screen and (max-width:768px) {
+            max-width: unset;
+        }
 
         &:hover {
             outline: 2px solid $red;
@@ -341,6 +402,140 @@ body {
             path {
                 fill: $Rose_500;
             }
+        }
+    }
+}
+
+.confirm_modal {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    transition: all .3s ease;
+
+    &.modal_hidden {
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    .modal_overlay {
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba($color: #000000, $alpha: 0.5);
+    }
+
+    .modal_content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 40vw;
+        // height: 200px;
+        background-color: $Rose_50;
+        border-radius: 10px;
+        padding: 30px;
+
+        @media screen and (max-width:1024px) {
+            width: 60vw;
+        }
+
+        @media screen and (max-width:768px) {
+            width: calc(100vw - 40px);
+            top: unset;
+            left: unset;
+            padding: 20px;
+            bottom: 0;
+            transform: translate(0, 0);
+        }
+    }
+
+    .cart_product {
+        padding: 20px;
+        gap: 20px;
+        justify-content: start;
+        margin-bottom: 0;
+
+        .confirm_product_img {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+        }
+
+        .cart_right_side {
+            margin-left: auto;
+
+        }
+
+        .cart_full_price {
+            font-size: 18px;
+            font-family: "RedHatText-Semibold", sans-serif;
+            color: $Rose_900;
+        }
+
+    }
+
+    .modal_confirm_img {
+        margin-bottom: 20px;
+    }
+
+    .modal_confirm_title {
+        font-size: 28px;
+        font-family: "RedHatText-Bold", sans-serif;
+        color: $Rose_900;
+        margin-bottom: 10px;
+    }
+
+    .modal_confirm_text {
+        font-family: "RedHatText-Semibold", sans-serif;
+        font-size: 14px;
+        color: $Rose_500;
+        margin-bottom: 30px;
+
+    }
+
+    .modal_confirm_products {
+        background-color: $Rose_100;
+    }
+
+    .modal_confirm_summary {
+        padding: 20px;
+        background-color: $Rose_100;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 30px;
+    }
+
+    .modal_confirm_summary_text {
+        font-family: "RedHatText-Regular", sans-serif;
+        color: $Rose_900;
+    }
+
+    .modal_confirm_summary_price {
+        font-size: 24px;
+        color: $Rose_900;
+        font-family: "RedHatText-Bold", sans-serif;
+
+    }
+
+    .modal_confirm_btn {
+        width: 100%;
+        padding: 12px 0;
+        border-radius: 20px;
+        border: 0;
+        margin-top: 20px;
+        background-color: $red;
+        color: white;
+        font-family: "RedHatText-SemiBold", sans-serif;
+        text-align: center;
+        cursor: pointer;
+        transition: background-color .3s ease;
+
+        &:hover {
+            background-color: $Rose_900;
         }
     }
 }

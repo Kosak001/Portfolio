@@ -12,6 +12,7 @@
 }
 body {
   background-color: hsl(20, 50%, 98%);
+  margin: 0;
 }
 
 .hidden_svg {
@@ -23,11 +24,15 @@ body {
   max-width: 1500px;
   padding: 0 50px;
 }
-
-.hidden {
-  opacity: 0;
-  visibility: hidden;
-  height: 0;
+@media screen and (max-width: 1024px) {
+  .container {
+    padding: 0 30px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .container {
+    padding: 0;
+  }
 }
 
 .content {
@@ -41,10 +46,36 @@ body {
   display: flex;
   gap: 30px;
 }
+@media screen and (max-width: 1024px) {
+  .content {
+    margin: 20px 0px;
+    padding: 30px;
+    gap: 20px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .content {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    padding: 20px;
+  }
+}
 
 .left_side {
   width: 70%;
   font-family: "RedHatText-Regular", sans-serif;
+}
+@media screen and (max-width: 1024px) {
+  .left_side {
+    width: 60%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .left_side {
+    width: 100%;
+  }
 }
 .left_side .title {
   font-size: 30px;
@@ -56,12 +87,27 @@ body {
 .right_side {
   width: 30%;
 }
+@media screen and (max-width: 1024px) {
+  .right_side {
+    width: 40%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .right_side {
+    width: 100%;
+  }
+}
 
 .right_side_cont {
   background-color: white;
   height: auto;
   padding: 20px;
   border-radius: 10px;
+}
+.right_side_cont .hidden {
+  opacity: 0;
+  visibility: hidden;
+  height: 0;
 }
 .right_side_cont .empty_cart img {
   width: 100%;
@@ -108,11 +154,10 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  padding: 10px 0;
+  padding: 10px;
   margin-top: 20px;
   gap: 6px;
   background-color: hsl(13, 31%, 94%);
-  width: 100%;
   border-radius: 10px;
   font-family: "RedHatText-Regular", sans-serif;
 }
@@ -139,12 +184,28 @@ body {
   grid-template-columns: 1fr 1fr 1fr;
   gap: 20px;
 }
+@media screen and (max-width: 1024px) {
+  .products {
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .products {
+    grid-template-columns: 1fr;
+  }
+}
 .products .single_product {
   width: 100%;
 }
 .products .img_container {
   position: relative;
   max-width: 300px;
+}
+@media screen and (max-width: 768px) {
+  .products .img_container {
+    max-width: unset;
+  }
 }
 .products .add_to_cart_btn {
   width: 50%;
@@ -177,6 +238,11 @@ body {
   z-index: 1;
   -webkit-transition: opacity 0.3s ease, background-color 0.3s ease, color 0.3s ease, visibility 0.3s 0.01s ease;
   transition: opacity 0.3s ease, background-color 0.3s ease, color 0.3s ease, visibility 0.3s 0.01s ease;
+}
+@media screen and (max-width: 1024px) {
+  .products .add_to_cart_btn {
+    font-size: 12px;
+  }
 }
 .products .add_to_cart_btn.hidden {
   opacity: 0;
@@ -245,6 +311,11 @@ body {
   -webkit-transition: outline 0.3s ease;
   transition: outline 0.3s ease;
   outline: 2px solid transparent;
+}
+@media screen and (max-width: 768px) {
+  .products .product_img {
+    max-width: unset;
+  }
 }
 .products .product_img:hover {
   outline: 2px solid hsl(14, 86%, 42%);
@@ -325,4 +396,132 @@ body {
 }
 .cart_product .remove_icon:hover path {
   fill: hsl(12, 20%, 44%);
+}
+
+.confirm_modal {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.confirm_modal.modal_hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+.confirm_modal .modal_overlay {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.confirm_modal .modal_content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 40vw;
+  background-color: hsl(20, 50%, 98%);
+  border-radius: 10px;
+  padding: 30px;
+}
+@media screen and (max-width: 1024px) {
+  .confirm_modal .modal_content {
+    width: 60vw;
+  }
+}
+@media screen and (max-width: 768px) {
+  .confirm_modal .modal_content {
+    width: calc(100vw - 40px);
+    top: unset;
+    left: unset;
+    padding: 20px;
+    bottom: 0;
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+  }
+}
+.confirm_modal .cart_product {
+  padding: 20px;
+  gap: 20px;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+  margin-bottom: 0;
+}
+.confirm_modal .cart_product .confirm_product_img {
+  width: 60px;
+  height: 60px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.confirm_modal .cart_product .cart_right_side {
+  margin-left: auto;
+}
+.confirm_modal .cart_product .cart_full_price {
+  font-size: 18px;
+  font-family: "RedHatText-Semibold", sans-serif;
+  color: hsl(14, 65%, 9%);
+}
+.confirm_modal .modal_confirm_img {
+  margin-bottom: 20px;
+}
+.confirm_modal .modal_confirm_title {
+  font-size: 28px;
+  font-family: "RedHatText-Bold", sans-serif;
+  color: hsl(14, 65%, 9%);
+  margin-bottom: 10px;
+}
+.confirm_modal .modal_confirm_text {
+  font-family: "RedHatText-Semibold", sans-serif;
+  font-size: 14px;
+  color: hsl(12, 20%, 44%);
+  margin-bottom: 30px;
+}
+.confirm_modal .modal_confirm_products {
+  background-color: hsl(13, 31%, 94%);
+}
+.confirm_modal .modal_confirm_summary {
+  padding: 20px;
+  background-color: hsl(13, 31%, 94%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 30px;
+}
+.confirm_modal .modal_confirm_summary_text {
+  font-family: "RedHatText-Regular", sans-serif;
+  color: hsl(14, 65%, 9%);
+}
+.confirm_modal .modal_confirm_summary_price {
+  font-size: 24px;
+  color: hsl(14, 65%, 9%);
+  font-family: "RedHatText-Bold", sans-serif;
+}
+.confirm_modal .modal_confirm_btn {
+  width: 100%;
+  padding: 12px 0;
+  border-radius: 20px;
+  border: 0;
+  margin-top: 20px;
+  background-color: hsl(14, 86%, 42%);
+  color: white;
+  font-family: "RedHatText-SemiBold", sans-serif;
+  text-align: center;
+  cursor: pointer;
+  -webkit-transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease;
+}
+.confirm_modal .modal_confirm_btn:hover {
+  background-color: hsl(14, 65%, 9%);
 }/*# sourceMappingURL=styles.css.map */

@@ -1,0 +1,86 @@
+$Light_Cyan: hsl(193, 38%, 86%);
+$Neon_Green: hsl(150, 100%, 66%);
+$Grayish_Blue: hsl(217, 19%, 38%);
+$Dark_Grayish_Blue: hsl(217, 19%, 24%);
+$Dark_Blue: hsl(218, 23%, 16%);
+
+@font-face {
+    font-family: 'RedHatText-Bold';
+    src: url('./assets/fonts/static/RedHatText-Bold.ttf')
+}
+
+body {
+    background-color: $Dark_Blue;
+}
+
+.content {
+    max-width: 504px;
+    background-color: $Dark_Grayish_Blue;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 30px;
+    border-radius: 10px;
+    font-family: 'Manrope';
+
+    .advice_title {
+        color: $Neon_Green;
+        text-transform: uppercase;
+        padding-bottom: 20px;
+        font-weight: 400;
+        letter-spacing: 3px;
+        text-align: center;
+    }
+
+    .advice_text {
+        font-size: 28px;
+        color: $Light_Cyan;
+        font-weight: 800;
+        text-align: center;
+        padding-bottom: 30px;
+    }
+
+    .advice_divider {
+        text-align: center;
+        padding-bottom: 40px;
+
+        @media screen and (max-width:768px) {
+            display: none;
+        }
+    }
+
+    .advice_divider_mobile {
+        display: none;
+        text-align: center;
+        padding-bottom: 40px;
+
+        @media screen and (max-width:768px) {
+            display: block;
+        }
+    }
+
+    .load_new_advice_btn {
+        border-radius: 50%;
+        background-color: $Neon_Green;
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        bottom: 0;
+        left: 50%;
+        transform: translate(-50%, 50%);
+        cursor: pointer;
+        transition: all .3s ease-in-out;
+
+        &:hover {
+            box-shadow: 0px 0px 20px 0px$Neon_Green;
+        }
+
+        svg {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+}

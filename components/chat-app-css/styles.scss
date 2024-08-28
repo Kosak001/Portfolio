@@ -1,0 +1,64 @@
+$Pale_Violet : hsl(276, 100%, 81%);
+$Moderate_Violet : hsl(276, 55%, 52%);
+$Desaturated_Dark_Violet : hsl(271, 15%, 43%);
+$Grayish_Blue : hsl(206, 6%, 79%);
+$Very_Dark_Desaturated_Violet : hsl(271, 36%, 24%);
+$Dark_Grayish_Violet : hsl(270, 7%, 64%);
+$Light_Magenta: hsl(293, 100%, 63%);
+$Light_Violet: hsl(264, 100%, 61%);
+$White: hsl(0, 0%, 100%);
+$Light_Grayish_Violet : hsl(270, 20%, 96%);
+$Very_Dark_Desaturated_Violet : hsl(271, 36%, 24%);
+$Very_Light_Magenta : hsl(289, 100%, 72%);
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: $Light_Grayish_Violet;
+    height: 100vh
+}
+
+.container {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.content {
+    margin: 0 auto;
+    max-width: 60vw;
+    display: flex;
+    justify-content: space-between;
+    gap: 150px;
+}
+
+.phone_shape {
+    border: 10px solid $White;
+    border-radius: 20px;
+    width: 300px;
+    position: relative;
+    box-shadow: 0px 10px 70px 0px rgba(128, 128, 128, 0.455);
+
+    .phone_top_shape {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60%;
+        background-color: $White;
+        height: 20px;
+        border-radius: 0 0 15px 15px;
+    }
+
+    .user {
+        background: linear-gradient(0.25turn, $Light_Violet, $Light_Magenta);
+        padding: 30px 10px 10px 10px;
+        border-radius: 10px 10px 0 0;
+        color: $White;
+    }
+}
+
+.desc_content {
+    width: 600px;
+}

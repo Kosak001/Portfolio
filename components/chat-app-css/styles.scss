@@ -15,30 +15,56 @@ body {
     margin: 0;
     padding: 0;
     background-color: $Light_Grayish_Violet;
-    height: 100vh
+    height: 100vh;
+    font-family: "Rubik", sans-serif;
 }
 
 .container {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    // height: 100vh;
+
+    margin: 50px 100px;
+
+    @media screen and (max-width:1024px) {
+        margin: 20px 50px;
+    }
+
+    @media screen and (max-width:768px) {
+        margin: 50px 20px;
+
+
+    }
 }
 
 .content {
     margin: 0 auto;
-    max-width: 60vw;
+    // max-width: 80vw;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
     gap: 150px;
+
+    @media screen and (max-width:1024px) {
+        gap: 50px;
+    }
+
+    @media screen and (max-width:768px) {
+        flex-direction: column;
+
+    }
 }
 
 .phone_shape {
     border: 10px solid $White;
     border-radius: 20px;
-    width: 300px;
+    width: 380px;
     position: relative;
     box-shadow: 0px 10px 70px 0px rgba(128, 128, 128, 0.455);
+
+    @media screen and (max-width: 900px) {
+        width: 300px;
+    }
+
+
 
     .phone_top_shape {
         position: absolute;
@@ -51,14 +77,283 @@ body {
         border-radius: 0 0 15px 15px;
     }
 
+    .phone_content {
+        width: 380px;
+
+        @media screen and (max-width: 900px) {
+            width: 300px;
+        }
+
+
+    }
+
     .user {
         background: linear-gradient(0.25turn, $Light_Violet, $Light_Magenta);
-        padding: 30px 10px 10px 10px;
-        border-radius: 10px 10px 0 0;
+        padding: 30px 20px 10px 20px;
+        border-radius: 10px 10px 5px 5px;
         color: $White;
+        display: flex;
+    }
+
+    .back_icon {
+        position: relative;
+        width: 20px;
+
+        span:nth-child(1) {
+            position: absolute;
+            width: 9px;
+            height: 3px;
+            background-color: $White;
+            display: block;
+            left: 0;
+            top: 42%;
+            transform: translateY(-50%) rotateZ(-65deg);
+        }
+
+        span:nth-child(2) {
+            position: absolute;
+            width: 9px;
+            height: 3px;
+            background-color: $White;
+            display: block;
+            left: 0;
+            top: 58%;
+            transform: translateY(-50%) rotateZ(65deg);
+        }
+    }
+
+
+    .user_img {
+
+        img {
+            border: 2px solid $White;
+            width: 35px;
+            height: 35px;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+    }
+
+    .user_info {
+        padding-left: 10px;
+
+        .user_name {
+            font-weight: 700;
+            padding-bottom: 5px;
+        }
+
+        .user_desc {
+            font-size: 12px;
+            color: $Pale_Violet;
+        }
+    }
+
+    .user_dots {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        margin-left: auto;
+        align-self: center;
+        height: 10px;
+
+        span {
+            width: 2px;
+            height: 2px;
+            background-color: $White;
+        }
+    }
+
+    .chats {
+        padding: 10px;
+        background-color: $Light_Grayish_Violet;
+        display: flex;
+        flex-direction: column;
+        line-height: 24px;
+        font-size: 14px;
+
+        .left_message {
+            max-width: 60%;
+            padding: 12px;
+            background-color: rgba($Pale_Violet, 0.3);
+            border-radius: 15px 15px 15px 5px;
+            color: $Moderate_Violet;
+            margin-bottom: 14px;
+            align-self: flex-start;
+
+            @media screen and (max-width:768px) {
+                padding: 6px;
+                font-size: 12px;
+                line-height: 18px;
+                margin-bottom: 10px;
+            }
+        }
+
+        .second_pattern {
+            background: linear-gradient(0.25turn, $Light_Magenta, $Light_Violet);
+            color: $White;
+            display: flex;
+            max-width: 70%;
+            width: 100%;
+            padding-right: 30px;
+            align-items: center;
+
+            @media screen and (max-width:768px) {
+                padding: 10px;
+            }
+
+            span:first-child {
+                padding-left: 15px;
+            }
+
+            span:last-child {
+                margin-left: auto;
+                font-weight: 700;
+                font-size: 22px;
+
+                @media screen and (max-width:768px) {
+                    font-size: 16px;
+                }
+            }
+
+            &::before {
+                content: '';
+                width: 20px;
+                height: 20px;
+                border-radius: 50%;
+                border: 1px solid $White;
+
+                @media screen and (max-width:768px) {
+                    width: 12px;
+                    height: 12px;
+                }
+            }
+        }
+
+        .right_message {
+            max-width: 60%;
+            align-self: flex-end;
+            padding: 12px;
+            background-color: $White;
+            border-radius: 15px 15px 5px 15px;
+            color: $Moderate_Violet;
+            margin-bottom: 14px;
+            box-shadow: 0px 5px 10px 0px rgba(128, 128, 128, 0.181);
+            color: $Dark_Grayish_Violet;
+
+            @media screen and (max-width:768px) {
+                padding: 6px;
+                font-size: 12px;
+                line-height: 18px;
+                margin-bottom: 10px;
+            }
+
+
+        }
+
+        .right_message_img {
+            align-self: flex-end;
+            max-width: 60%;
+            margin-bottom: 14px;
+            display: flex;
+            gap: 10px;
+
+            @media screen and (max-width:900px) {
+                max-width: unset;
+
+            }
+
+            img {
+                width: 56px;
+                height: 56px;
+                border-radius: 10px;
+            }
+        }
+
+        div:nth-child(3) {
+            margin-top: 14px;
+        }
+
+        div:nth-child(5) {
+            margin-bottom: 28px;
+        }
+
+        .new_message {
+            margin-top: 14px;
+            background-color: $White;
+            padding: 20px;
+            border-radius: 40px;
+            color: $Dark_Grayish_Violet;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+
+            @media screen and (max-width:768px) {
+                padding: 14px;
+
+            }
+        }
+
+        .new_message_btn {
+            position: absolute;
+            right: 10px;
+            width: 40px;
+            height: 40px;
+            background-color: $Very_Dark_Desaturated_Violet;
+            border-radius: 50%;
+
+            @media screen and (max-width:768px) {
+                width: 30px;
+                height: 30px;
+            }
+
+            &::after {
+                content: '';
+                position: absolute;
+                width: 9px;
+                height: 3px;
+                background-color: $White;
+                display: block;
+                left: 50%;
+                top: 57%;
+                transform: translate(-50%, -50%) rotateZ(-45deg);
+            }
+
+            &::before {
+                content: '';
+                position: absolute;
+                width: 9px;
+                height: 3px;
+                background-color: $White;
+                display: block;
+                left: 50%;
+                top: 43%;
+                transform: translate(-50%, -50%) rotateZ(45deg);
+            }
+        }
     }
 }
 
 .desc_content {
-    width: 600px;
+    max-width: 600px;
+    width: 100%;
+
+    @media screen and (max-width:768px) {
+        text-align: center;
+    }
+
+    .desc_content_title {
+        font-size: 40px;
+        font-weight: 600;
+        color: $Very_Dark_Desaturated_Violet;
+        padding-bottom: 30px;
+    }
+
+    .desc_content_text {
+        color: $Dark_Grayish_Violet;
+        font-size: 18px;
+        line-height: 30px;
+    }
 }

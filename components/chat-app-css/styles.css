@@ -3,40 +3,62 @@ body {
   padding: 0;
   background-color: hsl(270, 20%, 96%);
   height: 100vh;
+  font-family: "Rubik", sans-serif;
 }
 
 .container {
-  height: 100vh;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  margin: 50px 100px;
+}
+@media screen and (max-width: 1024px) {
+  .container {
+    margin: 20px 50px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .container {
+    margin: 50px 20px;
+  }
 }
 
 .content {
   margin: 0 auto;
-  max-width: 60vw;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   gap: 150px;
+}
+@media screen and (max-width: 1024px) {
+  .content {
+    gap: 50px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .content {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
 }
 
 .phone_shape {
   border: 10px solid hsl(0, 0%, 100%);
   border-radius: 20px;
-  width: 300px;
+  width: 380px;
   position: relative;
   -webkit-box-shadow: 0px 10px 70px 0px rgba(128, 128, 128, 0.455);
           box-shadow: 0px 10px 70px 0px rgba(128, 128, 128, 0.455);
+}
+@media screen and (max-width: 900px) {
+  .phone_shape {
+    width: 300px;
+  }
 }
 .phone_shape .phone_top_shape {
   position: absolute;
@@ -49,14 +71,294 @@ body {
   height: 20px;
   border-radius: 0 0 15px 15px;
 }
+.phone_shape .phone_content {
+  width: 380px;
+}
+@media screen and (max-width: 900px) {
+  .phone_shape .phone_content {
+    width: 300px;
+  }
+}
 .phone_shape .user {
   background: -webkit-gradient(linear, left top, right top, from(hsl(264, 100%, 61%)), to(hsl(293, 100%, 63%)));
   background: linear-gradient(0.25turn, hsl(264, 100%, 61%), hsl(293, 100%, 63%));
-  padding: 30px 10px 10px 10px;
-  border-radius: 10px 10px 0 0;
+  padding: 30px 20px 10px 20px;
+  border-radius: 10px 10px 5px 5px;
   color: hsl(0, 0%, 100%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.phone_shape .back_icon {
+  position: relative;
+  width: 20px;
+}
+.phone_shape .back_icon span:nth-child(1) {
+  position: absolute;
+  width: 9px;
+  height: 3px;
+  background-color: hsl(0, 0%, 100%);
+  display: block;
+  left: 0;
+  top: 42%;
+  -webkit-transform: translateY(-50%) rotateZ(-65deg);
+          transform: translateY(-50%) rotateZ(-65deg);
+}
+.phone_shape .back_icon span:nth-child(2) {
+  position: absolute;
+  width: 9px;
+  height: 3px;
+  background-color: hsl(0, 0%, 100%);
+  display: block;
+  left: 0;
+  top: 58%;
+  -webkit-transform: translateY(-50%) rotateZ(65deg);
+          transform: translateY(-50%) rotateZ(65deg);
+}
+.phone_shape .user_img img {
+  border: 2px solid hsl(0, 0%, 100%);
+  width: 35px;
+  height: 35px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 50%;
+}
+.phone_shape .user_info {
+  padding-left: 10px;
+}
+.phone_shape .user_info .user_name {
+  font-weight: 700;
+  padding-bottom: 5px;
+}
+.phone_shape .user_info .user_desc {
+  font-size: 12px;
+  color: hsl(276, 100%, 81%);
+}
+.phone_shape .user_dots {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-left: auto;
+  -ms-flex-item-align: center;
+      align-self: center;
+  height: 10px;
+}
+.phone_shape .user_dots span {
+  width: 2px;
+  height: 2px;
+  background-color: hsl(0, 0%, 100%);
+}
+.phone_shape .chats {
+  padding: 10px;
+  background-color: hsl(270, 20%, 96%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  line-height: 24px;
+  font-size: 14px;
+}
+.phone_shape .chats .left_message {
+  max-width: 60%;
+  padding: 12px;
+  background-color: rgba(216, 158, 255, 0.3);
+  border-radius: 15px 15px 15px 5px;
+  color: hsl(276, 55%, 52%);
+  margin-bottom: 14px;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+}
+@media screen and (max-width: 768px) {
+  .phone_shape .chats .left_message {
+    padding: 6px;
+    font-size: 12px;
+    line-height: 18px;
+    margin-bottom: 10px;
+  }
+}
+.phone_shape .chats .second_pattern {
+  background: -webkit-gradient(linear, left top, right top, from(hsl(293, 100%, 63%)), to(hsl(264, 100%, 61%)));
+  background: linear-gradient(0.25turn, hsl(293, 100%, 63%), hsl(264, 100%, 61%));
+  color: hsl(0, 0%, 100%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  max-width: 70%;
+  width: 100%;
+  padding-right: 30px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+@media screen and (max-width: 768px) {
+  .phone_shape .chats .second_pattern {
+    padding: 10px;
+  }
+}
+.phone_shape .chats .second_pattern span:first-child {
+  padding-left: 15px;
+}
+.phone_shape .chats .second_pattern span:last-child {
+  margin-left: auto;
+  font-weight: 700;
+  font-size: 22px;
+}
+@media screen and (max-width: 768px) {
+  .phone_shape .chats .second_pattern span:last-child {
+    font-size: 16px;
+  }
+}
+.phone_shape .chats .second_pattern::before {
+  content: "";
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1px solid hsl(0, 0%, 100%);
+}
+@media screen and (max-width: 768px) {
+  .phone_shape .chats .second_pattern::before {
+    width: 12px;
+    height: 12px;
+  }
+}
+.phone_shape .chats .right_message {
+  max-width: 60%;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  padding: 12px;
+  background-color: hsl(0, 0%, 100%);
+  border-radius: 15px 15px 5px 15px;
+  color: hsl(276, 55%, 52%);
+  margin-bottom: 14px;
+  -webkit-box-shadow: 0px 5px 10px 0px rgba(128, 128, 128, 0.181);
+          box-shadow: 0px 5px 10px 0px rgba(128, 128, 128, 0.181);
+  color: hsl(270, 7%, 64%);
+}
+@media screen and (max-width: 768px) {
+  .phone_shape .chats .right_message {
+    padding: 6px;
+    font-size: 12px;
+    line-height: 18px;
+    margin-bottom: 10px;
+  }
+}
+.phone_shape .chats .right_message_img {
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  max-width: 60%;
+  margin-bottom: 14px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 10px;
+}
+@media screen and (max-width: 900px) {
+  .phone_shape .chats .right_message_img {
+    max-width: unset;
+  }
+}
+.phone_shape .chats .right_message_img img {
+  width: 56px;
+  height: 56px;
+  border-radius: 10px;
+}
+.phone_shape .chats div:nth-child(3) {
+  margin-top: 14px;
+}
+.phone_shape .chats div:nth-child(5) {
+  margin-bottom: 28px;
+}
+.phone_shape .chats .new_message {
+  margin-top: 14px;
+  background-color: hsl(0, 0%, 100%);
+  padding: 20px;
+  border-radius: 40px;
+  color: hsl(270, 7%, 64%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+}
+@media screen and (max-width: 768px) {
+  .phone_shape .chats .new_message {
+    padding: 14px;
+  }
+}
+.phone_shape .chats .new_message_btn {
+  position: absolute;
+  right: 10px;
+  width: 40px;
+  height: 40px;
+  background-color: hsl(271, 36%, 24%);
+  border-radius: 50%;
+}
+@media screen and (max-width: 768px) {
+  .phone_shape .chats .new_message_btn {
+    width: 30px;
+    height: 30px;
+  }
+}
+.phone_shape .chats .new_message_btn::after {
+  content: "";
+  position: absolute;
+  width: 9px;
+  height: 3px;
+  background-color: hsl(0, 0%, 100%);
+  display: block;
+  left: 50%;
+  top: 57%;
+  -webkit-transform: translate(-50%, -50%) rotateZ(-45deg);
+          transform: translate(-50%, -50%) rotateZ(-45deg);
+}
+.phone_shape .chats .new_message_btn::before {
+  content: "";
+  position: absolute;
+  width: 9px;
+  height: 3px;
+  background-color: hsl(0, 0%, 100%);
+  display: block;
+  left: 50%;
+  top: 43%;
+  -webkit-transform: translate(-50%, -50%) rotateZ(45deg);
+          transform: translate(-50%, -50%) rotateZ(45deg);
 }
 
 .desc_content {
-  width: 600px;
+  max-width: 600px;
+  width: 100%;
+}
+@media screen and (max-width: 768px) {
+  .desc_content {
+    text-align: center;
+  }
+}
+.desc_content .desc_content_title {
+  font-size: 40px;
+  font-weight: 600;
+  color: hsl(271, 36%, 24%);
+  padding-bottom: 30px;
+}
+.desc_content .desc_content_text {
+  color: hsl(270, 7%, 64%);
+  font-size: 18px;
+  line-height: 30px;
 }/*# sourceMappingURL=styles.css.map */

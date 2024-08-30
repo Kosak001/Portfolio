@@ -9,7 +9,10 @@
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
 
   <title>Frontend Mentor | [Challenge Name Here]</title>
-
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+    rel="stylesheet">
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <style>
     .attribution {
@@ -29,11 +32,17 @@
     <div class="content">
       <div class="phone_shape">
         <div class="phone_top_shape">
-          
+
         </div>
         <div class="phone_content">
           <div class="user">
-            <div class="user_img"></div>
+            <div class="back_icon">
+              <span></span>
+              <span></span>
+            </div>
+            <div class="user_img">
+              <img src="./images/avatar.jpg" alt="">
+            </div>
             <div class="user_info">
               <div class="user_name">
                 Samuel Green
@@ -42,7 +51,11 @@
                 Available to Walk
               </div>
             </div>
-            <div class="user_dots"></div>
+            <div class="user_dots">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
           </div>
           <div class="chats">
             <div class="left_message">
@@ -51,8 +64,9 @@
             <div class="left_message">
               Could you send over some pictures of your dog, please?
             </div>
-            <div class="right_message">
-
+            <div class="right_message_img">
+              <img src="./images/dog-image-1.jpg" alt=""><img src="./images/dog-image-2.jpg" alt=""><img
+                src="./images/dog-image-3.jpg" alt="">
             </div>
             <div class="right_message">
               Here are a few pictures. She’s a happy girl!
@@ -63,23 +77,30 @@
             <div class="left_message">
               She looks so happy! The time we discussed works. How long shall I take her out for?
             </div>
-            <div class="left_message">
-              30 minute walk
-              $29
+            <div class="left_message second_pattern">
+              <span>
+                30 minute walk
+              </span>
+              <span>
+                $29
+              </span>
             </div>
-            <div class="left_message">
-
-              1 hour walk
-              $49
+            <div class="left_message second_pattern">
+              <span>
+                1 hour walk
+              </span>
+              <span>
+                $49
+              </span>
             </div>
-
+            <div class="new_message">
+              <div class="new_message_text">
+                Type a message…
+              </div>
+              <div class="new_message_btn"></div>
+            </div>
           </div>
-          <div class="new_message">
-            <div class="new_message_text">
-              Type a message…
-            </div>
-            <div class="new_message_btn"></div>
-          </div>
+
         </div>
       </div>
 

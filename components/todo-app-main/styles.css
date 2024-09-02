@@ -1,0 +1,106 @@
+body {
+  margin: 0;
+  height: 100vh;
+  font-size: 18px;
+  font-family: "Josefin Sans", sans-serif;
+}
+
+.light_mode {
+  background-color: hsl(233, 11%, 84%);
+}
+.light_mode .bgc_img_cont {
+  position: absolute;
+  top: 0;
+}
+.light_mode .bgc_img_cont img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  max-height: 300px;
+}
+.light_mode .sun {
+  opacity: 0;
+  visibility: hidden;
+  height: 0;
+}
+
+.content {
+  max-width: 50vw;
+  margin: 100px auto 0;
+  position: relative;
+}
+.content .top_side {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 40px;
+}
+.content .top_side_title {
+  font-size: 40px;
+  font-weight: 700;
+  letter-spacing: 14px;
+  color: hsl(0, 0%, 98%);
+}
+.content .new_todo {
+  padding: 14px 20px;
+  width: calc(100% - 40px);
+  border-radius: 6px;
+  border: 0;
+  font-size: 20px;
+  background-color: hsl(0, 0%, 98%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.content .new_todo input {
+  width: calc(100% - 30px);
+  border: 0;
+  background-color: hsl(0, 0%, 98%);
+  margin-left: 30px;
+  font-size: 18px;
+  color: hsl(236, 9%, 61%);
+}
+.content .new_todo input:focus-visible {
+  outline: 0;
+}
+.content .new_todo .add_new_todo_cont {
+  background: hsl(233, 11%, 84%);
+  width: 26px;
+  height: 26px;
+  border-radius: 1000px;
+  padding: 1px;
+}
+.content .new_todo .add_new_todo_cont:hover {
+  cursor: pointer;
+  background: linear-gradient(45deg, #57ddff, #c058f3);
+}
+.content .new_todo .add_new_todo_btn {
+  background: hsl(0, 0%, 98%);
+  width: 26px;
+  height: 26px;
+  border-radius: 1000px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.content .checked {
+  background: linear-gradient(45deg, #57ddff, #c058f3) !important;
+}
+.content .checked div {
+  background: linear-gradient(45deg, #57ddff, #c058f3) !important;
+}/*# sourceMappingURL=styles.css.map */

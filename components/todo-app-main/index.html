@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap"
+    rel="stylesheet">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+  <title>Frontend Mentor | Todo app</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution {
+      font-size: 11px;
+      text-align: center;
+    }
+
+    .attribution a {
+      color: hsl(228, 45%, 44%);
+    }
+  </style>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="light_mode">
+  <div class="bgc_img_cont">
+    <img src="./images/bg-desktop-light.jpg" alt="">
+  </div>
+  <div class="container">
+    <div class="content">
+      <div class="top_side">
+        <div class="top_side_title">TODO</div>
+        <div class="top_side_theme_icon">
+          <img class="moon" src="./images/icon-moon.svg" alt="moon"><img class="sun" src="./images/icon-sun.svg"
+            alt="sun">
+          <svg xmlns="http://www.w3.org/2000/svg" width="11" height="9">
+            <path fill="none" stroke="#FFF" stroke-width="2" d="M1 4.304L3.696 7l6-6" />
+          </svg>
+        </div>
+
+      </div>
+      <div class="new_todo">
+        <div class="add_new_todo_cont checked">
+          <div class="add_new_todo_btn ">
+            <svg xmlns="http://www.w3.org/2000/svg" width="11" height="9">
+              <path fill="none" stroke="#FFF" stroke-width="2" d="M1 4.304L3.696 7l6-6" />
+            </svg>
+          </div>
+        </div>
+
+        <input class="" placeholder="Create a new todo..." />
+      </div>
+      <div class="todos"></div>
+      <div class="bottom_side"></div>
+    </div>
+  </div>
+
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+    Coded by <a href="#">Your Name Here</a>.
+  </div>
+  <script src="script.js"></script>
+</body>
+
+</html>

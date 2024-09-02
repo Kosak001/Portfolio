@@ -1,0 +1,122 @@
+$Bright_Blue: hsl(220, 98%, 61%);
+$Check_Background: linear-gradient(45deg, #57ddff, #c058f3);
+
+$Very_Light_Gray: hsl(0, 0%, 98%);
+$Very_Light_Grayish_Blue: hsl(236, 33%, 92%);
+$Light_Grayish_Blue: hsl(233, 11%, 84%);
+$Dark_Grayish_Blue: hsl(236, 9%, 61%);
+$Very_Dark_Grayish_Blue: hsl(235, 19%, 35%);
+
+$Very_Dark_Blue: hsl(235, 21%, 11%);
+$Very_Dark_Desaturated_Blue: hsl(235, 24%, 19%);
+$Light_Grayish_Blue_2: hsl(234, 39%, 85%);
+$Light_Grayish_Blue_2: hsl(236, 33%, 92%);
+$Dark_Grayish_Blue_2: hsl(234, 11%, 52%);
+$Very_Dark_Grayish_Blue: hsl(233, 14%, 35%);
+$Very_Dark_Grayish_Blue_2: hsl(237, 14%, 26%);
+
+body {
+    margin: 0;
+    height: 100vh;
+    font-size: 18px;
+    font-family: "Josefin Sans", sans-serif;
+}
+
+
+.light_mode {
+    background-color: $Light_Grayish_Blue;
+
+    .bgc_img_cont {
+        position: absolute;
+        top: 0;
+
+        img {
+            width: 100%;
+            object-fit: cover;
+            max-height: 300px;
+        }
+    }
+
+    .sun {
+        opacity: 0;
+        visibility: hidden;
+        height: 0;
+    }
+}
+
+.content {
+    max-width: 50vw;
+    margin: 100px auto 0;
+    position: relative;
+
+    .top_side {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 40px;
+    }
+
+    .top_side_title {
+        font-size: 40px;
+        font-weight: 700;
+        letter-spacing: 14px;
+        color: $Very_Light_Gray;
+    }
+
+    .new_todo {
+        padding: 14px 20px;
+        width: calc(100% - 40px);
+        border-radius: 6px;
+        border: 0;
+        font-size: 20px;
+        background-color: $Very_Light_Gray;
+        display: flex;
+        align-items: center;
+
+        input {
+            width: calc(100% - 30px);
+            border: 0;
+            background-color: $Very_Light_Gray;
+            margin-left: 30px;
+            font-size: 18px;
+            color: $Dark_Grayish_Blue;
+
+            &:focus-visible {
+                outline: 0;
+            }
+        }
+
+        .add_new_todo_cont {
+            background: $Light_Grayish_Blue;
+            width: 26px;
+            height: 26px;
+            border-radius: 1000px;
+            padding: 1px;
+
+            &:hover {
+                cursor: pointer;
+                background: $Check_Background;
+            }
+        }
+
+        .add_new_todo_btn {
+            background: $Very_Light_Gray;
+            width: 26px;
+            height: 26px;
+            border-radius: 1000px;
+            display: flex;
+            align-items: center;
+            justify-content: center
+        }
+
+
+    }
+
+    .checked {
+        background: $Check_Background !important;
+
+        div {
+            background: $Check_Background !important;
+        }
+    }
+}

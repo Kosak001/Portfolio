@@ -9,6 +9,7 @@ images.forEach((img, index) => {
         var swiper = new Swiper(".mySwiper", {
             slidesPerView: 3,
             centeredSlides: true,
+            freemode: false,
             navigation: {
                 nextEl: ".swiper-button-next",
                 prevEl: ".swiper-button-prev",
@@ -38,6 +39,8 @@ let executed = false;
 
 function copyImages() {
     if (!executed) {
+        console.log('test');
+
         executed = true;
         images.forEach(img => {
             let images = img.cloneNode(true)

@@ -10,6 +10,7 @@ body {
 }
 .light_mode .bgc_img_cont {
   position: absolute;
+  width: 100%;
   top: 0;
 }
 .light_mode .bgc_img_cont img {

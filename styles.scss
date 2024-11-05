@@ -55,6 +55,7 @@ nav {
    width: 30px;
    height: 20px;
    z-index: 100;
+   right: 0;
 
 
    &:hover {
@@ -124,81 +125,82 @@ nav {
    background-color: #c568d2;
    transition: 0.5s cubic-bezier(1, -0.05, 0.78, 1.06) .1s;
 
-   $menuDelays: ("1": 0.5,
+   $menuDelays: (
+      "1": 0.5,
       "2": 0.6,
       "3": 0.7,
       "4": 0.8,
       "5": 0.9,
    );
 
-   @each $menuDelays,
-   $i in $menuDelays {
-      .single_item_cont:nth-child(#{$menuDelays}) {
-         transition: all 1s #{$i}s ease-in-out;
-      }
+@each $menuDelays,
+$i in $menuDelays {
+   .single_item_cont:nth-child(#{$menuDelays}) {
+      transition: all 1s #{$i}s ease-in-out;
    }
+}
 
-   &.active {
-      top: 20px;
-   }
+&.active {
+   top: 20px;
+}
 
-   .single_item_cont {
-      opacity: 0;
-      transform: rotateX(-90deg) translateZ(40px);
-   }
+.single_item_cont {
+   opacity: 0;
+   transform: rotateX(-90deg) translateZ(40px);
+}
 
-   .menu_items_cont {
-      // position: absolute;
-      // left: 50%;
-      // top: 50%;
-      // transform: translate(-50%, -50%);
-      font-size: 28px;
-      line-height: 38px;
-      cursor: pointer;
-      text-align: center;
-      text-transform: uppercase;
+.menu_items_cont {
+   // position: absolute;
+   // left: 50%;
+   // top: 50%;
+   // transform: translate(-50%, -50%);
+   font-size: 28px;
+   line-height: 38px;
+   cursor: pointer;
+   text-align: center;
+   text-transform: uppercase;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   margin: 30px 0;
+
+   .single_item {
+      transition: 0.5s cubic-bezier(0.75, 0, 0, 1);
+      position: relative;
+      width: fit-content;
+      transform-style: preserve-3d;
       display: flex;
-      flex-direction: column;
-      justify-content: center;
       align-items: center;
-      margin: 30px 0;
+      justify-content: center;
+      color: #2A2359;
+      text-decoration: none;
 
-      .single_item {
+      .start_state,
+      .hover_state {
          transition: 0.5s cubic-bezier(0.75, 0, 0, 1);
-         position: relative;
-         width: fit-content;
-         transform-style: preserve-3d;
-         display: flex;
-         align-items: center;
-         justify-content: center;
-         color: #2A2359;
-         text-decoration: none;
+      }
 
-         .start_state,
-         .hover_state {
-            transition: 0.5s cubic-bezier(0.75, 0, 0, 1);
-         }
+      .start_state {
+         transform: translateZ(10px) scale(0.75);
+         font-family: "Victor Mono", monospace;
+      }
 
-         .start_state {
-            transform: translateZ(10px) scale(0.75);
-            font-family: "Victor Mono", monospace;
-         }
+      .hover_state {
+         position: absolute;
+         // left: 0;
+         transform: translateY(-30%) rotateX(90deg) scale(0.75);
+         bottom: 0;
+         color: #fff;
+         font-family: "Open Sans", sans-serif;
+         white-space: nowrap;
+      }
 
-         .hover_state {
-            position: absolute;
-            // left: 0;
-            transform: translateY(-30%) rotateX(90deg) scale(0.75);
-            bottom: 0;
-            color: #fff;
-            font-family: "Open Sans", sans-serif;
-            white-space: nowrap;
-         }
-
-         &:hover {
-            transform: rotateX(-90deg);
-         }
+      &:hover {
+         transform: rotateX(-90deg);
       }
    }
+}
 }
 
 .cursor_dot {
@@ -518,7 +520,7 @@ h1:nth-child(5) {
    grid-template-columns: 1fr 1fr;
    gap: 50px;
    align-items: center;
-   padding-top: 50px;
+   padding-top: 200px;
 
    @media screen and (max-width:1200px) {
       grid-template-columns: 1fr;

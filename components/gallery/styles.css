@@ -160,10 +160,20 @@ body {
   height: 20px;
   border: 1px solid white;
   background-color: white;
+  border-radius: 5px;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.close_icon:hover {
+  background-color: black;
+  border-color: black;
+}
+.close_icon:hover::before, .close_icon:hover::after {
+  background-color: white;
 }
 .close_icon::before {
   content: "";
-  width: 10px;
+  width: 12px;
   height: 1px;
   position: absolute;
   background-color: black;
@@ -171,10 +181,12 @@ body {
   left: 50%;
   -webkit-transform: translate(-50%, -50%) rotate(45deg);
           transform: translate(-50%, -50%) rotate(45deg);
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
 .close_icon::after {
   content: "";
-  width: 10px;
+  width: 12px;
   height: 1px;
   position: absolute;
   background-color: black;
@@ -182,4 +194,6 @@ body {
   left: 50%;
   -webkit-transform: translate(-50%, -50%) rotate(-45deg);
           transform: translate(-50%, -50%) rotate(-45deg);
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }/*# sourceMappingURL=styles.css.map */

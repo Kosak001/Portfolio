@@ -326,149 +326,6 @@ h1 {
    width: 120px;
 }
 
-h1:first-child {
-   left: 10%;
-   animation: letter1 2s linear 0s infinite;
-
-   @keyframes letter1 {
-      0% {
-         transform: translateY(0px);
-      }
-
-      25% {
-         transform: translateY(-10px);
-
-      }
-
-      50% {
-         transform: translateY(0px);
-      }
-
-      75% {
-         transform: translateY(10px);
-      }
-
-      100% {
-         transform: translateY(0px);
-      }
-   }
-}
-
-h1:nth-child(2) {
-   left: 25%;
-
-   animation: letter2 2s linear 1s infinite;
-
-   @keyframes letter2 {
-      0% {
-         transform: translateY(0px);
-      }
-
-      25% {
-         transform: translateY(-10px);
-
-      }
-
-      50% {
-         transform: translateY(0px);
-      }
-
-      75% {
-         transform: translateY(10px);
-      }
-
-      100% {
-         transform: translateY(0px);
-      }
-   }
-}
-
-h1:nth-child(3) {
-   left: 40%;
-
-   animation: letter3 2s linear 2s infinite;
-
-   @keyframes letter3 {
-      0% {
-         transform: translateY(0px);
-      }
-
-      25% {
-         transform: translateY(-10px);
-
-      }
-
-      50% {
-         transform: translateY(0px);
-      }
-
-      75% {
-         transform: translateY(10px);
-      }
-
-      100% {
-         transform: translateY(0px);
-      }
-   }
-}
-
-h1:nth-child(4) {
-   left: 55%;
-
-   animation: letter4 2s linear 3s infinite;
-
-   @keyframes letter4 {
-      0% {
-         transform: translateY(0px);
-      }
-
-      25% {
-         transform: translateY(-10px);
-
-      }
-
-      50% {
-         transform: translateY(0px);
-      }
-
-      75% {
-         transform: translateY(10px);
-      }
-
-      100% {
-         transform: translateY(0px);
-      }
-   }
-}
-
-h1:nth-child(5) {
-   left: 70%;
-   animation: letter5 2s linear 4s infinite;
-
-   @keyframes letter5 {
-      0% {
-         transform: translateY(0px);
-      }
-
-      25% {
-         transform: translateY(-10px);
-
-      }
-
-      50% {
-         transform: translateY(0px);
-      }
-
-      75% {
-         transform: translateY(10px);
-      }
-
-      100% {
-         transform: translateY(0px);
-      }
-   }
-}
-
 .logo {
    color: black;
 
@@ -554,37 +411,43 @@ h1:nth-child(5) {
    .desc {
       font-size: 26px;
 
-      ul {
-         padding-left: 26px;
-         list-style-type: circle;
+
+
+      div {
+         display: flex;
+         align-items: center;
+         gap: 20px;
+
+         img {
+            width: 30px;
+            height: 30px;
+         }
       }
 
-
-
-      li:nth-child(1) {
-         color: #E07100;
-
+      div:nth-child(1) {
+         color: rgb(253, 166, 6);
+         padding-top: 20px;
 
       }
 
-      li:nth-child(2) {
+      div:nth-child(2) {
          color: #2D93E0;
 
       }
 
-      li:nth-child(3) {
+      div:nth-child(3) {
          color: #DED116;
       }
 
-      li:nth-child(4) {
+      div:nth-child(4) {
          color: #15D0E0;
       }
 
-      li:nth-child(5) {
+      div:nth-child(5) {
          color: #05E12D;
       }
 
-      li:nth-child(6) {
+      div:nth-child(6) {
          color: #E10D12;
       }
 

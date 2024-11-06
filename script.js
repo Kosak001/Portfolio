@@ -19,13 +19,13 @@ window.addEventListener('scroll', function () {
 })
 
 
-let loader = document.querySelector('.preloader');
-window.addEventListener('load', () => {
-   setTimeout(() => {
-      loader.classList.add('hide');
+// let loader = document.querySelector('.preloader');
+// window.addEventListener('load', () => {
+//    setTimeout(() => {
+//       loader.classList.add('hide');
 
-   }, 1000);
-})
+//    }, 1000);
+// })
 
 let squareBgc1 = document.querySelector('.square_bgc_1')
 let firstRot = 40;
@@ -39,6 +39,7 @@ setInterval(() => {
    squareBgc2.style.transform = `rotate(${secondRot}deg)`;
    secondRot--;
 }, 100);
+
 
 
 

@@ -161,26 +161,42 @@ body {
     height: 20px;
     border: 1px solid white;
     background-color: white;
+    border-radius: 5px;
+    transition: all .3s ease;
+
+    &:hover {
+        background-color: black;
+        border-color: black;
+
+        &::before,
+        &::after {
+            background-color: white;
+        }
+    }
 
     &::before {
         content: '';
-        width: 10px;
+        width: 12px;
         height: 1px;
         position: absolute;
         background-color: black;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%) rotate(45deg);
+        transition: all .3s ease;
+
     }
 
     &::after {
         content: '';
-        width: 10px;
+        width: 12px;
         height: 1px;
         position: absolute;
         background-color: black;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%) rotate(-45deg);
+        transition: all .3s ease;
+
     }
 }

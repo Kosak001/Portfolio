@@ -369,9 +369,20 @@ h1:after {
   }
 }
 
+.anim {
+  opacity: 0;
+  -webkit-transform: translateY(100px);
+          transform: translateY(100px);
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+.anim.fade_in {
+  opacity: 1;
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+}
+
 .main_section {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
   gap: 50px;
   -webkit-box-align: center;
       -ms-flex-align: center;
@@ -387,8 +398,34 @@ h1:after {
     justify-items: center;
   }
 }
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+    -webkit-transform: translateY(-100px);
+            transform: translateY(-100px);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    -webkit-transform: translateY(-100px);
+            transform: translateY(-100px);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+  }
+}
 .main_section .left_side {
   color: rgba(255, 255, 255, 0.892);
+  -webkit-animation: fadeIn 0.5s;
+          animation: fadeIn 0.5s;
 }
 .main_section .right_side {
   height: 100%;
@@ -410,6 +447,19 @@ h1:after {
 .main_section .desc {
   font-size: 26px;
 }
+.main_section .desc .desc_tech {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  padding-top: 20px;
+}
 .main_section .desc div {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -425,7 +475,6 @@ h1:after {
 }
 .main_section .desc div:nth-child(1) {
   color: rgb(253, 166, 6);
-  padding-top: 20px;
 }
 .main_section .desc div:nth-child(2) {
   color: #2D93E0;
@@ -487,10 +536,9 @@ h1:after {
   }
 }
 .projects_wrapper .other_projects .single_project {
-  background-color: #8C1E8E;
   padding: 20px;
   border-radius: 20px;
-  color: white;
+  color: black;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -524,17 +572,12 @@ h1:after {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: black;
-  opacity: 0;
+  background-color: rgba(255, 255, 255, 0.733);
+  opacity: 1;
   z-index: 0;
   border-radius: 20px;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
-}
-@media screen and (max-width: 1024px) {
-  .projects_wrapper .other_projects .single_project::after {
-    opacity: 0.4;
-  }
 }
 .projects_wrapper .other_projects .single_project:hover .desc {
   opacity: 1;
@@ -543,7 +586,7 @@ h1:after {
   opacity: 1;
 }
 .projects_wrapper .other_projects .single_project:hover::after {
-  opacity: 0.4;
+  opacity: 0.2;
 }
 .projects_wrapper .other_projects .single_project:nth-child(1) {
   background: url("./img/window.jpg");
@@ -563,21 +606,38 @@ h1:after {
   background-repeat: no-repeat;
   background-size: cover;
 }
+.projects_wrapper .other_projects .single_project:nth-child(4) {
+  background: url("./components/quote/design/active-states.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.projects_wrapper .other_projects .single_project:nth-child(5) {
+  background: url("./components/faq/design/desktop-design.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.projects_wrapper .other_projects .single_project:nth-child(6) {
+  background: url("./components/cart/design/desktop-design-empty.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 .projects_wrapper .other_projects .title {
   font-size: 26px;
   line-height: 32px;
   text-align: center;
   padding-bottom: 10px;
-  text-shadow: black 2px 2px 1px;
+  text-shadow: #8C1E8E 2px 2px 1px, #8C1E8E 0px 0px 5px;
 }
 .projects_wrapper .other_projects .desc {
   font-size: 20px;
   line-height: 24px;
   padding-bottom: 20px;
-  opacity: 0.1;
+  opacity: 1;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
-  text-shadow: black 2px 2px 1px;
 }
 @media screen and (max-width: 1024px) {
   .projects_wrapper .other_projects .desc {

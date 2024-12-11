@@ -1,0 +1,103 @@
+$Desaturated_Dark_Cyan: hsl(180, 29%, 50%);
+$Light_Grayish_Cyan_Back: hsl(180, 52%, 96%);
+$Light_Grayish_Cyan_Filter: hsl(180, 31%, 95%);
+$Dark_Grayish_Cyan: hsl(180, 8%, 52%);
+$Very_Dark_Grayish_Cyan: hsl(180, 14%, 20%);
+$white: white;
+
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=League+Spartan:wght@100..900&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 15px;
+    font-family: "League Spartan";
+    font-weight: 500;
+    background-color: $Light_Grayish_Cyan_Back;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 50px auto 0;
+}
+
+.bg_header {
+    width: 100%;
+}
+
+.single_job {
+    display: flex;
+    gap: 30px;
+    background-color: $white;
+    padding: 30px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+
+    .job_info {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .job_info_top {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+    }
+
+
+    .job_info_company {
+        color: $Desaturated_Dark_Cyan;
+    }
+
+    .job_info_new {
+        color: $Light_Grayish_Cyan_Filter;
+        background-color: $Desaturated_Dark_Cyan;
+        padding: 6px 10px 4px;
+        border-radius: 14px;
+        text-transform: uppercase;
+    }
+
+    .job_info_featured {
+        color: $Light_Grayish_Cyan_Filter;
+        background-color: $Very_Dark_Grayish_Cyan;
+        padding: 6px 10px 4px;
+        border-radius: 14px;
+        text-transform: uppercase;
+    }
+
+    .job_info_middle {
+        font-size: 20px;
+        font-weight: 700;
+    }
+
+    .job_info_bottom {
+        display: flex;
+        color: $Dark_Grayish_Cyan;
+        gap: 12px;
+
+        .dot {
+            width: 2px;
+            height: 2px;
+            background-color: $Dark_Grayish_Cyan;
+            margin-top: 5px;
+        }
+    }
+
+    .job_roles {
+        display: flex;
+        margin-left: auto;
+        align-items: center;
+        gap: 10px;
+
+        .job_single_role {
+            color: $Desaturated_Dark_Cyan;
+            background-color: $Light_Grayish_Cyan_Back;
+            padding: 10px;
+            font-weight: 700;
+        }
+    }
+
+
+}

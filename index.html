@@ -9,6 +9,7 @@
    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&family=Victor+Mono&display=swap"
       rel="stylesheet" />
+   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
    <title>Jakub Kosakowski - portfolio</title>
 </head>
 
@@ -68,29 +69,32 @@
                My na me is Jakub and I am a frontend developer with 1.5 year of commercial programming (2 years
                if
                you include intership). During my career i worked using technologies such as :
-               <div>
-                  <img src="./img/html-5-svgrepo-com.svg" alt="">
-                  <span>HTML</span>
-               </div>
-               <div>
-                  <img src="./img/css-3-svgrepo-com.svg" alt="">
-                  <span>CSS(SCSS)</span>
-               </div>
-               <div>
-                  <img src="./img/javascript-svgrepo-com.svg" alt="">
-                  <span>JavaScript</span>
-               </div>
-               <div>
-                  <img src="./img/jquery-svgrepo-com.svg" alt="">
-                  <span>jQuery</span>
-               </div>
-               <div>
-                  <img src="./img/wordpress-color-svgrepo-com.svg" alt="">
-                  <span>Wordpress</span>
-               </div>
-               <div>
-                  <img src="./img/angular-svgrepo-com.svg" alt="">
-                  <span>Angular</span>
+               <div class="desc_tech">
+                  <div>
+                     <img src="./img/html-5-svgrepo-com.svg" alt="">
+                     <span>HTML</span>
+                  </div>
+                  <div>
+                     <img src="./img/css-3-svgrepo-com.svg" alt="">
+                     <span>CSS(SCSS)</span>
+                  </div>
+                  <div>
+                     <img src="./img/javascript-svgrepo-com.svg" alt="">
+                     <span>JavaScript</span>
+                  </div>
+                  <div>
+                     <img src="./img/jquery-svgrepo-com.svg" alt="">
+                     <span>jQuery</span>
+                  </div>
+                  <div>
+                     <img src="./img/wordpress-color-svgrepo-com.svg" alt="">
+                     <span>Wordpress</span>
+                  </div>
+                  <div>
+                     <img src="./img/angular-svgrepo-com.svg" alt="">
+                     <span>Angular</span>
+                  </div>
+
                </div>
 
 
@@ -111,11 +115,11 @@
    <div class="wrapper">
       <div class="projects_wrapper">
 
-         <div class="projects_title">
+         <div class="projects_title anim">
             My projects and works
          </div>
-         <div class="other_projects">
-            <div class="single_project">
+         <div class="other_projects anim">
+            <div class="single_project anim">
                <div class="project_content">
                   <div class="title">Vinmark</div>
                   <div class="desc">Simple one page website made for one of my acquaintance. It is made on WP with
@@ -126,18 +130,18 @@
                </div>
 
             </div>
-            <div class="single_project">
+            <div class="single_project anim">
                <div class="project_content">
                   <div class="title">Memory Game</div>
                   <div class="desc">A simple card game involving finding all the pairs of cards on the page. All cards
                      are mixed and randomly distributed across the board</div>
                   <div class="links">
-                     <a href="./components/gallery/index.html" class="link">link</a>
+                     <a href="./games/guessCard/index.html" class="link">link</a>
                      <a href="https://github.com/Kosak001/Portfolio/tree/main/games/guessCard" class="link">github</a>
                   </div>
                </div>
             </div>
-            <div class="single_project">
+            <div class="single_project anim">
                <div class="project_content">
                   <div class="title">Gallery</div>
                   <div class="desc">Gallery component with nine pictures. After clicking on any of them it opens modal
@@ -149,18 +153,50 @@
                   </div>
                </div>
             </div>
+            <div class="single_project anim">
+               <div class="project_content">
+                  <div class="title">Quote</div>
+                  <div class="desc">Advice generator app - A simple project that use the Advice Slip API to generate
+                     random quotes of advice.</div>
+                  <div class="links">
+                     <a href="./components/quote/index.html" class="link">link</a>
+                     <a href="https://github.com/Kosak001/Portfolio/tree/main/components/quote" class="link">github</a>
+                  </div>
+               </div>
+            </div>
+            <div class="single_project anim">
+               <div class="project_content">
+                  <div class="title">FAQ Accordion</div>
+                  <div class="desc">Page with accordions. There is more info about me.</div>
+                  <div class="links">
+                     <a href="./components/faq/index.html" class="link">link</a>
+                     <a href="https://github.com/Kosak001/Portfolio/tree/main/components/faq" class="link">github</a>
+                  </div>
+               </div>
+            </div>
+            <div class="single_project anim">
+               <div class="project_content">
+                  <div class="title">Cart</div>
+                  <div class="desc">Project with simple cart and few products. JSON file used for populating the DOM
+                     dynamically</div>
+                  <div class="links">
+                     <a href="./components/cart/index.html" class="link">link</a>
+                     <a href="https://github.com/Kosak001/Portfolio/tree/main/components/cart" class="link">github</a>
+                  </div>
+               </div>
+            </div>
 
          </div>
 
       </div>
    </div>
 
-   <div class="square_bgc_1">
+   <!-- <div class="square_bgc_1">
 
    </div>
    <div class="square_bgc_2">
 
-   </div>
+   </div> -->
 
    <div class="footer">
       <div class="wrapper">
@@ -191,7 +227,6 @@
    </div>
 
 
-   <script src="https://d3js.org/d3.v4.min.js"></script>
    <script src="script.js"></script>
 </body>
 

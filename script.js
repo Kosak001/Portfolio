@@ -27,19 +27,42 @@ window.addEventListener('scroll', function () {
 //    }, 1000);
 // })
 
-let squareBgc1 = document.querySelector('.square_bgc_1')
-let firstRot = 40;
-setInterval(() => {
-   squareBgc1.style.transform = `rotate(${firstRot}deg)`;
-   firstRot++;
-}, 100);
-let squareBgc2 = document.querySelector('.square_bgc_2')
-let secondRot = 55;
-setInterval(() => {
-   squareBgc2.style.transform = `rotate(${secondRot}deg)`;
-   secondRot--;
-}, 100);
+// let squareBgc1 = document.querySelector('.square_bgc_1')
+// let firstRot = 40;
+// setInterval(() => {
+//    squareBgc1.style.transform = `rotate(${firstRot}deg)`;
+//    firstRot++;
+// }, 100);
+// let squareBgc2 = document.querySelector('.square_bgc_2')
+// let secondRot = 55;
+// setInterval(() => {
+//    squareBgc2.style.transform = `rotate(${secondRot}deg)`;
+//    secondRot--;
+// }, 100);
+
+const animElements = document.querySelectorAll('.anim')
+function anim() {
+   animElements.forEach(element => {
+
+      const rect = element.getBoundingClientRect();
+
+      // Sprawdź, czy element znajduje się w widocznym obszarze
+      if (
+         rect.top + 100 < (window.innerHeight || document.documentElement.clientHeight) &&
+         rect.bottom >= 0
+      ) {
+         element.classList.add('fade_in')
+      }
+   });
 
 
+
+}
+document.addEventListener("scroll", () => {
+   anim()
+
+});
+
+anim()
 
 

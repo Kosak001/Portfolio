@@ -28,6 +28,8 @@ body {
    transition: 0.3s ease-in-out;
 }
 
+
+
 nav {
    font-size: 20px;
    line-height: 30px;
@@ -372,9 +374,20 @@ h1 {
    }
 }
 
+.anim {
+   opacity: 0;
+   transform: translateY(100px);
+   transition: all 0.5s ease;
+
+   &.fade_in {
+      opacity: 1;
+      transform: translateY(0);
+   }
+}
+
 .main_section {
-   display: grid;
-   grid-template-columns: 1fr 1fr;
+   // display: grid;
+   // grid-template-columns: 1fr 1fr;
    gap: 50px;
    align-items: center;
    padding-top: 200px;
@@ -385,8 +398,22 @@ h1 {
       justify-items: center;
    }
 
+   @keyframes fadeIn {
+      from {
+         opacity: 0;
+         transform: translateY(-100px);
+      }
+
+      to {
+         opacity: 1;
+         transform: translateY(0px);
+
+      }
+   }
+
    .left_side {
       color: rgba(255, 255, 255, 0.892);
+      animation: fadeIn 0.5s;
    }
 
    .right_side {
@@ -411,7 +438,12 @@ h1 {
    .desc {
       font-size: 26px;
 
-
+      .desc_tech {
+         display: flex;
+         flex-direction: column;
+         align-items: flex-start;
+         padding-top: 20px;
+      }
 
       div {
          display: flex;
@@ -426,7 +458,6 @@ h1 {
 
       div:nth-child(1) {
          color: rgb(253, 166, 6);
-         padding-top: 20px;
 
       }
 
@@ -495,10 +526,10 @@ h1 {
       }
 
       .single_project {
-         background-color: #8C1E8E;
+         // background-color: #8C1E8E;
          padding: 20px;
          border-radius: 20px;
-         color: white;
+         color: black;
          display: flex;
          flex-direction: column;
          position: relative;
@@ -522,15 +553,15 @@ h1 {
             left: 0;
             right: 0;
             bottom: 0;
-            background-color: black;
-            opacity: 0;
+            background-color: rgba(255, 255, 255, 0.733);
+            opacity: 1;
             z-index: 0;
             border-radius: 20px;
             transition: all .3s ease-in-out;
 
-            @media screen and (max-width:1024px) {
-               opacity: .4;
-            }
+            // @media screen and (max-width:1024px) {
+            //    opacity: 0;
+            // }
          }
 
          &:hover {
@@ -543,7 +574,7 @@ h1 {
             }
 
             &::after {
-               opacity: 0.4
+               opacity: 0.2
             }
          }
 
@@ -569,6 +600,27 @@ h1 {
             background-repeat: no-repeat;
             background-size: cover;
          }
+
+         &:nth-child(4) {
+            background: url('./components/quote/design/active-states.jpg');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+         }
+
+         &:nth-child(5) {
+            background: url('./components/faq/design/desktop-design.jpg');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+         }
+
+         &:nth-child(6) {
+            background: url('./components/cart/design/desktop-design-empty.jpg');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+         }
       }
 
       .title {
@@ -576,7 +628,7 @@ h1 {
          line-height: 32px;
          text-align: center;
          padding-bottom: 10px;
-         text-shadow: black 2px 2px 1px;
+         text-shadow: #8C1E8E 2px 2px 1px, #8C1E8E 0px 0px 5px;
 
       }
 
@@ -584,9 +636,9 @@ h1 {
          font-size: 20px;
          line-height: 24px;
          padding-bottom: 20px;
-         opacity: 0.1;
+         opacity: 1;
          transition: all .3s ease-in-out;
-         text-shadow: black 2px 2px 1px;
+         // text-shadow: black 2px 2px 1px;
 
          @media screen and (max-width:1024px) {
             opacity: 1;

@@ -3,6 +3,7 @@ body {
   background: -webkit-gradient(linear, left top, left bottom, from(#8C1E8E), to(#2A1A8E));
   background: linear-gradient(#8C1E8E, #2A1A8E);
   font-family: "Courier New", Courier, monospace;
+  height: 100vh;
 }
 
 .go_home {
@@ -16,13 +17,13 @@ body {
 
 .cards_container {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   row-gap: 20px;
   -webkit-column-gap: 20px;
      -moz-column-gap: 20px;
           column-gap: 20px;
   justify-items: center;
-  max-width: 600px;
+  max-width: 1200px;
   width: 100%;
   margin: 20px auto;
 }
